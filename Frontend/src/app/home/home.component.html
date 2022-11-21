@@ -1,0 +1,57 @@
+
+        <!-- <nav> -->
+            <mat-drawer-container class="container" autosize>
+                <mat-drawer #drawer class="sidenav"> 
+                    
+                    <!-- <section class="sec-1"> -->
+            <div class="home">  
+            <div class="navBar" id="mainNavBar">
+                <br><br>
+                <a  mat-raised-button style="margin-left:8% ;" *ngIf="_auth.loggedIn()" routerLink="/books">BOOKS COLLECTION</a>
+                <br><br>
+                <!-- <a class="button" *ngIf="_auth.loggedIn()" routerLink="/authors" routerLinkActive="active">Authors</a> -->
+                <a  mat-raised-button style="margin-left:20% ;" [hidden]="_auth.loggedIn() && _auth.getUser()=='user'" routerLink="/addbook">ADD BOOKS</a>
+                    <br><br>
+                <!-- <a class="button" [hidden]="_auth.loggedIn() && _auth.getUser()=='user' " routerLink="/addauthor">Add
+                    Authors</a> -->
+                <a  mat-raised-button style="margin-left:18% ;" (click)="goToBottom()">CONTACT US</a>
+            </div>
+        
+    </div>
+<!-- </section> -->
+</mat-drawer>
+<div class="sidenav-content">
+    <mat-toolbar style="background-color: rgba(17, 70, 161, 0.9);">
+        <mat-toolbar-row style="margin-left:2vw ;">
+            <a mat-icon (click)="drawer.toggle()" style="color:white ;">
+                <mat-icon>menu</mat-icon>
+            </a>
+            <span style="color:white ; font-family: 'Times New Roman', Times, serif; font-size: 33px; margin-left: 1.5vw;"> Library App</span>
+            <span class="spacer"></span>
+            <div class="login">
+                <a class="button" *ngIf="_auth.loggedIn()" (click)="logout()" routerLink="">Logout</a>
+            </div>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+    <mat-card>
+    <div class="imagenew">
+        <img src="../assets/images/background.jpeg" style="background-repeat: no-repeat ; background-size:cover ; width: 100%; margin-bottom: 0;" alt="">
+        
+        <a >Welcome to Library App</a>
+<section id="about">
+        <h6 style=" font-weight: 400; ">ABOUT US</h6>
+        <div class="container1">
+            <p style="font-size: 17px ; text-align: justify; width: 100%; line-height: 25x;">One of the most common places for people to seek information is still the public library. Fortunately, modern libraries have kept up with technological advancements and have integrated computers, the internet, and other important tools as a normal part of this dynamic hub where paper media meets electronics. In fact, many people view the library as the central information center of the city, and in order to retain this title, librarians now find themselves faced with the need to utilize smartphones and tablet apps to complete their tasks and perform jobs more quickly and efficiently</p>
+        </div>
+</section>
+</div>
+</mat-card>
+</div>
+
+<app-footer></app-footer>
+</mat-drawer-container>
+
+
+        
+

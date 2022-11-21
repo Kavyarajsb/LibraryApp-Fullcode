@@ -1,0 +1,15 @@
+<!-- <nav>
+<div class="back ">
+    <a class="button" routerLink="/home">Home</a>
+    <a class="button" (click)="goBack()">Back </a>   
+</div>
+</nav> -->
+<mat-form-field appearance="fill" style="float: right;">
+  <mat-label>Goback/Home</mat-label>
+  <mat-select>
+    <mat-option>
+        <a class="button" (click)="goBack()">Back </a> 
+        <a class="button" routerLink="/home">Home</a>
+    </mat-option>
+  </mat-select>
+</mat-form-field>

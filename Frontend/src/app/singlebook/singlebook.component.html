@@ -1,0 +1,66 @@
+<app-navigator></app-navigator>
+
+<div class="section hero" *ngFor=" let singlebook of singlebooks">
+    <div class="container" style="margin-left:20vw ; width: 100%;">
+        <div class="row">
+            <div class="one-half column col-6 textshadow" >
+                <h4 class="titleshadow">
+                    {{singlebook.title}}
+                </h4>
+                <ul>
+                    <li>Author :
+                        {{singlebook.author}}
+                    </li>
+                    <li>Language :
+                        {{singlebook.language}}
+                    </li>
+                    <li>Pages :
+                        {{singlebook.pageCount}}
+                    </li>
+                    <li>Category :
+                        {{singlebook.categories}}
+                    </li>
+                    <li>Published Date :
+                        {{singlebook.publishedDate}}
+                    </li>
+                </ul>
+
+                <div class="column">
+                    <div class="one-third row value">
+                        <a class="button btn1" href="#">Add to List</a>
+                    </div>
+                    <br>
+                    <div class="one-third row value">
+                        <a class="button btn1" href="#">Read</a>
+                    </div>
+                    <br>
+                </div>
+                <div class="column">
+                    <div class=" row value">
+                        <a class="button btn2" (click)="updateBook(singlebook)" [hidden]="_auth.loggedIn() && _auth.getUser()=='user' " id="updatebook">Update</a>
+                    </div>
+                    <br>
+                    <div class=" row value">
+                        <a class="button btn2" (click)="deleteBook(singlebook)" [hidden]="_auth.loggedIn() && _auth.getUser()=='user' " id="deletebook">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="one-half column phones col-6">
+            <img class="phone" style="margin-top:70vh ; margin-right:10vw ;" src="{{singlebook.image}}">
+        </div>
+    </div>
+</div>
+<div class="section get-help" *ngFor=" let singlebook of singlebooks">
+    <div class="container-fluid textshadow" style="margin-top:0 ;">
+        <h3 class="section-heading">About</h3>
+        <br>
+        <p class="section-description">
+            {{singlebook.about}}
+        </p>
+    </div>
+</div>
+<app-footer></app-footer>
+
+
+
